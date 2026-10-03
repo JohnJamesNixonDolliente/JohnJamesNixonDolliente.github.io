@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="John James Nixon Dolliente - AI Automation Specialist. Workflow automation, data pipelines and dashboards.">
+<title>John James Nixon Dolliente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: single reading column (~1080px) — hero, three case studies each pairing text with a sample-data visual, then skills, experience, contact. */
+:root {
+  --bg: #f3f5f4;
+  --surface: #ffffff;
+  --ink: #15211e;
+  --muted: #5b6b67;
+  --line: #d8e0dd;
+  --accent: #0b7d63;
+  --accent-soft: #dcefe9;
+  --warm: #c46a1b;
+  --warm-soft: #f6e6d6;
+  --bad: #b8323a;
+  --bad-soft: #f5dcde;
+  --chip: #e9eeec;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1614; --surface: #17211e; --ink: #e6eeeb; --muted: #9db0aa; --line: #2a3834;
+    --accent: #3cc49d; --accent-soft: #173a31; --warm: #e59a52; --warm-soft: #3a2a1a;
+    --bad: #ef7a80; --bad-soft: #3d1f22; --chip: #22302c; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1614; --surface: #17211e; --ink: #e6eeeb; --muted: #9db0aa; --line: #2a3834;
+  --accent: #3cc49d; --accent-soft: #173a31; --warm: #e59a52; --warm-soft: #3a2a1a;
+  --bad: #ef7a80; --bad-soft: #3d1f22; --chip: #22302c; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 40px 64px; display: grid; gap: 72px; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.12; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.label { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Hero */
+.hero { display: grid; gap: 22px; padding-top: 24px; }
+.hero h1 { font-size: clamp(38px, 6.4vw, 68px); font-weight: 800; letter-spacing: -0.02em; }
+.hero h1 span { color: var(--accent); }
+.hero .role { font-family: var(--f-display); font-weight: 500; font-size: clamp(20px, 2.6vw, 26px); color: var(--muted); }
+.hero .lede { max-width: 64ch; font-size: 18px; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 8px 6px 14px; font-size: 15px; }
+.contact-chip code { font-family: var(--f-mono); font-size: 13.5px; user-select: all; }
+.copy-btn { font: 600 12px var(--f-body); background: var(--chip); color: var(--ink); border: 0; border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+.copy-btn:hover { background: var(--accent-soft); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stat { padding: 16px 14px 14px 0; display: grid; gap: 2px; }
+.stat + .stat { padding-left: 16px; border-left: 1px solid var(--line); }
+.stat b { font-family: var(--f-display); font-size: 32px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 14px; color: var(--muted); line-height: 1.35; }
+@media (max-width: 720px) {
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
+/* Sections */
+.section-head { display: grid; gap: 8px; margin-bottom: 26px; }
+.section-head h2 { font-size: clamp(28px, 3.6vw, 38px); font-weight: 700; }
+.section-head p { color: var(--muted); max-width: 62ch; }
+
+/* Case studies */
+.cases { display: grid; gap: 56px; }
+.case { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 36px; align-items: start; }
+.case:nth-child(even) .case-text { order: 2; }
+@media (max-width: 860px) { .case { grid-template-columns: 1fr; } .case:nth-child(even) .case-text { order: 0; } }
+.case-text { display: grid; gap: 14px; min-width: 0; }
+.case-text h3 { font-size: 26px; font-weight: 700; }
+.case dl { margin: 0; display: grid; gap: 10px; }
+.case dt { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.case dd { margin: 0; }
+.case ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--f-mono); font-size: 12px; background: var(--chip); border-radius: 6px; padding: 3px 8px; }
+
+/* Visual frames */
+.frame { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; box-shadow: 0 1px 2px rgba(20, 40, 35, 0.05), 0 12px 32px rgba(20, 40, 35, 0.07); }
+.frame-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 14px; border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.frame-bar .sample { font-family: var(--f-mono); font-size: 11px; background: var(--warm-soft); color: var(--warm); border-radius: 4px; padding: 2px 6px; white-space: nowrap; }
+.frame-body { padding: 16px; display: grid; gap: 14px; }
+
+/* Mock 1: dashboard */
+.role-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.role-tab { font-size: 12.5px; border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: 4px 10px; cursor: pointer; font-family: var(--f-body); }
+.role-tab[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 520px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.kpi { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: grid; gap: 1px; }
+.kpi small { font-size: 11.5px; color: var(--muted); }
+.kpi b { font-family: var(--f-display); font-size: 20px; font-variant-numeric: tabular-nums; }
+.kpi em { font-style: normal; font-size: 11.5px; font-family: var(--f-mono); }
+.up { color: var(--accent); } .down { color: var(--bad); }
+.scope-note { font-size: 13px; color: var(--muted); }
+.mini-table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
+.mini-table th { text-align: left; font-weight: 600; color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 6px; border-bottom: 1px solid var(--line); }
+.mini-table td { padding: 6px; border-bottom: 1px solid var(--line); }
+.mini-table td.num, .mini-table th.num { text-align: right; }
+.pill { display: inline-block; font-size: 11.5px; font-weight: 600; border-radius: 999px; padding: 1px 8px; }
+.pill.ok { background: var(--accent-soft); color: var(--accent); }
+.pill.warn { background: var(--warm-soft); color: var(--warm); }
+.pill.bad { background: var(--bad-soft); color: var(--bad); }
+.table-scroll { overflow-x: auto; }
+
+/* Mock 2: pipeline day */
+.day { position: relative; }
+.day svg { width: 100%; height: auto; display: block; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+/* Mock 3: scorecard */
+.bands { width: 100%; border-collapse: collapse; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.bands th, .bands td { padding: 6px 5px; border-bottom: 1px solid var(--line); text-align: center; white-space: nowrap; }
+.bands th:first-child, .bands td:first-child { text-align: left; }
+.bands td.hit { background: var(--accent-soft); color: var(--accent); font-weight: 700; border-radius: 4px; }
+.payout { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.payout div { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; display: grid; }
+.payout small { font-size: 11.5px; color: var(--muted); }
+.payout b { font-family: var(--f-display); font-size: 19px; font-variant-numeric: tabular-nums; }
+
+/* Skills + experience */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px 32px; }
+.skill-group { display: grid; gap: 10px; align-content: start; }
+.skill-group h3 { font-size: 18px; font-weight: 700; }
+.ai-note { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; display: grid; gap: 10px; max-width: 760px; }
+.ai-note h3 { font-size: 20px; }
+.ai-note ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.timeline { display: grid; gap: 0; }
+.job { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding-block: 16px; border-top: 1px solid var(--line); }
+.job:last-child { border-bottom: 1px solid var(--line); }
+.job .when { font-family: var(--f-mono); font-size: 13px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.job h3 { font-size: 19px; font-weight: 700; }
+.job p { color: var(--muted); }
+@media (max-width: 560px) { .job { grid-template-columns: 1fr; gap: 4px; } }
+
+.contact { display: grid; gap: 16px; }
+.contact h2 { font-size: clamp(28px, 3.6vw, 38px); }
+footer { font-size: 13.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; }
+@media (prefers-reduced-motion: no-preference) { .role-tab, .copy-btn { transition: background 0.15s; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <header class="hero">
+    <div class="label">Laguna, Philippines · Open to AI automation roles</div>
+    <h1>John James Nixon <span>Dolliente</span></h1>
+    <div class="role">AI Automation Specialist · Workflow automation, data pipelines and dashboards</div>
+    <p class="lede">I turn contact-center operations work into software that runs on its own. As a WFM and reporting analyst with a Computer Engineering degree, I used AI-assisted development to build a production workforce dashboard and the cloud pipelines that feed it, replacing manual Excel reporting for a full customer service operation.</p>
+    <div class="contact-row">
+      <span class="contact-chip">Email <code id="emailText">dollienten@gmail.com</code><button type="button" class="copy-btn" data-copy="emailText" id="copyEmail">Copy</button></span>
+      <span class="contact-chip">LinkedIn <a href="https://www.linkedin.com/in/johnjamesnixondolliente" target="_blank" rel="noopener">johnjamesnixondolliente</a>&nbsp;</span>
+    </div>
+    <div class="stats" aria-label="Project at a glance">
+      <div class="stat"><b>7</b><span>role-based views in one dashboard</span></div>
+      <div class="stat"><b>8</b><span>scheduled cloud jobs, running unattended</span></div>
+      <div class="stat"><b>85+</b><span>agents scored by the incentive engine each month</span></div>
+      <div class="stat"><b>30 min</b><span>refresh on live agent login status</span></div>
+    </div>
+  </header>
+
+  <section aria-labelledby="work-h">
+    <div class="section-head">
+      <div class="label">Selected work</div>
+      <h2 id="work-h">Three systems, one operation</h2>
+      <p>Each project replaced a manual, spreadsheet-driven process. The screens below are rebuilt with sample data, so no client or employee information is shown.</p>
+    </div>
+
+    <div class="cases">
+
+      <article class="case">
+        <div class="case-text">
+          <div class="label">Project 1 · Web application</div>
+          <h3>Role-based workforce &amp; performance dashboard</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Attendance, schedules, KPIs, bonuses and coaching lived in separate Excel files, updated by hand and shared by email. Every role saw either everything or nothing.</dd></div>
+            <div><dt>What I built</dt><dd>
+              <ul>
+                <li>One web app with seven views: Agent, Line Manager, QA, WFM, Operations Manager, Senior OM and Admin.</li>
+                <li>Single sign-on with row-level security, so each person only sees their own data or their own team.</li>
+                <li>WFM tools: schedule builder with automatic breaks, PTO requests and approvals, late-exception handling.</li>
+                <li>A digital coaching form with e-signatures, monthly completion tracking and PDF export.</li>
+              </ul>
+            </dd></div>
+            <div><dt>Result</dt><dd>Managers, agents and WFM work from one live source instead of emailed spreadsheets.</dd></div>
+          </dl>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Azure App Service</span><span class="tag">Azure SQL</span><span class="tag">Entra ID SSO</span><span class="tag">Chart.js</span></div>
+        </div>
+
+        <figure class="frame" style="margin:0">
+          <div class="frame-bar"><span>Team Overview</span><span class="sample">SAMPLE DATA</span></div>
+          <div class="frame-body">
+            <div class="role-tabs" role="group" aria-label="Preview a role">
+              <button type="button" class="role-tab" id="roleAgent" data-role="agent" aria-pressed="false">Agent</button>
+              <button type="button" class="role-tab" id="roleLm" data-role="lm" aria-pressed="true">Line Manager</button>
+              <button type="button" class="role-tab" id="roleWfm" data-role="wfm" aria-pressed="false">WFM</button>
+              <button type="button" class="role-tab" id="roleOm" data-role="om" aria-pressed="false">Ops Manager</button>
+            </div>
+            <div class="scope-note" id="scopeNote"></div>
+            <div class="kpis" id="kpiRow"></div>
+            <div class="table-scroll"><table class="mini-table" id="mockTable"></table></div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="case">
+        <div class="case-text">
+          <div class="label">Project 2 · Data engineering</div>
+          <h3>Automated cloud data pipelines</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Reports depended on someone downloading CRM exports and running scripts on a laptop every day. A missed day meant a gap in the numbers.</dd></div>
+            <div><dt>What I built</dt><dd>
+              <ul>
+                <li>Eight scheduled Azure Functions that pull KPI, customer-satisfaction, QA, roster, schedule and attendance data into Azure SQL.</li>
+                <li>Secrets in Azure Key Vault and managed identities, so no passwords are stored anywhere.</li>
+                <li>Adaptive search-window splitting to get past a 10,000-record API limit, plus retries for rate limits.</li>
+                <li>Backfill and single-day recompute tools for correcting past dates.</li>
+              </ul>
+            </dd></div>
+            <div><dt>Result</dt><dd>The data refreshes unattended every day, and live login status every 30 minutes.</dd></div>
+          </dl>
+          <div class="tags"><span class="tag">Azure Functions</span><span class="tag">REST APIs</span><span class="tag">Microsoft Graph</span><span class="tag">Key Vault</span><span class="tag">T-SQL</span><span class="tag">Azure DevOps CI/CD</span></div>
+        </div>
+
+        <figure class="frame" style="margin:0">
+          <div class="frame-bar"><span>Daily job schedule (Manila time)</span><span class="sample">SAMPLE LAYOUT</span></div>
+          <div class="frame-body">
+            <div class="day" id="dayChart" role="img" aria-label="24-hour timeline: login status every 30 minutes; KPI and satisfaction at 3:30 PM; attendance at 4:00 PM; QA at 5:00 PM; scorecard at 5:30 PM; roster and schedule at 8:00 PM on Monday and Friday."></div>
+            <div class="legend">
+              <span><i style="background:var(--accent)"></i>Daily data pull</span>
+              <span><i style="background:var(--warm)"></i>Scorecard calculation</span>
+              <span><i style="background:var(--muted)"></i>Login status, every 30 min</span>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+      <article class="case">
+        <div class="case-text">
+          <div class="label">Project 3 · Business rules engine</div>
+          <h3>Scorecard &amp; incentive calculator</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Monthly bonuses came from a complex Excel workbook: weighted KPIs, rating bands, attendance multipliers, tenure and disciplinary rules, all checked by hand.</dd></div>
+            <div><dt>What I built</dt><dd>
+              <ul>
+                <li>A Python engine that rates each agent on four weighted KPIs against agreed bands and applies the payout curve.</li>
+                <li>Attendance qualifiers, tenure and disciplinary gates, and prorating for agents who resign mid-month.</li>
+                <li>Month-to-date previews for agents, then a locked final run once the month closes.</li>
+                <li>A separate scorecard for Line Managers, including team retention and coaching completion.</li>
+              </ul>
+            </dd></div>
+            <div><dt>Result</dt><dd>Bonuses for 85+ agents are calculated the same way every month, and every agent can see why they earned what they earned.</dd></div>
+          </dl>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Business rules</span><span class="tag">Data validation</span></div>
+        </div>
+
+        <figure class="frame" style="margin:0">
+          <div class="frame-bar"><span>Scorecard for one agent</span><span class="sample">SAMPLE DATA</span></div>
+          <div class="frame-body">
+            <div class="table-scroll">
+              <table class="bands">
+                <thead><tr><th>Metric · weight</th><th>Result</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr></thead>
+                <tbody>
+                  <tr><td>Satisfaction · 15%</td><td>3.12</td><td></td><td></td><td></td><td class="hit">4</td><td></td></tr>
+                  <tr><td>Quality · 35%</td><td>96.0%</td><td></td><td></td><td></td><td></td><td class="hit">5</td></tr>
+                  <tr><td>Chat handle time · 35%</td><td>11.4 min</td><td></td><td></td><td class="hit">3</td><td></td><td></td></tr>
+                  <tr><td>Available hours · 15%</td><td>6.2 hrs</td><td></td><td></td><td></td><td></td><td class="hit">5</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="payout">
+              <div><small>Weighted score</small><b>4.15 / 5</b></div>
+              <div><small>Attendance</small><b>97.4%</b></div>
+              <div><small>Status</small><b><span class="pill ok">Earning</span></b></div>
+            </div>
+          </div>
+        </figure>
+      </article>
+
+    </div>
+  </section>
+
+  <section aria-labelledby="ai-h">
+    <div class="ai-note">
+      <div class="label">How I build</div>
+      <h3 id="ai-h">AI-assisted development, with production discipline</h3>
+      <p>I use Claude as a development partner to design, write, test and document features. The speed comes from AI; the reliability comes from the process around it:</p>
+      <ol>
+        <li>Audit the existing code and data before changing anything.</li>
+        <li>Make the smallest change that solves the problem, isolated to the role or page it affects.</li>
+        <li>Write database changes as numbered scripts that preview first and roll back by default.</li>
+        <li>Check each fix against real data before it ships.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="skills-h">
+    <div class="section-head">
+      <div class="label">Toolkit</div>
+      <h2 id="skills-h">Skills</h2>
+    </div>
+    <div class="skills">
+      <div class="skill-group"><h3>AI &amp; automation</h3><div class="tags"><span class="tag">Claude</span><span class="tag">Prompt engineering</span><span class="tag">Power Automate</span><span class="tag">Power Apps</span><span class="tag">Scheduled jobs</span></div></div>
+      <div class="skill-group"><h3>Programming</h3><div class="tags"><span class="tag">Python</span><span class="tag">SQL / T-SQL</span><span class="tag">JavaScript</span><span class="tag">HTML/CSS</span><span class="tag">Flask</span><span class="tag">Jinja2</span></div></div>
+      <div class="skill-group"><h3>Cloud &amp; data</h3><div class="tags"><span class="tag">Azure App Service</span><span class="tag">Azure Functions</span><span class="tag">Azure SQL</span><span class="tag">Key Vault</span><span class="tag">Entra ID</span><span class="tag">Azure DevOps</span><span class="tag">REST APIs</span><span class="tag">Microsoft Graph</span></div></div>
+      <div class="skill-group"><h3>Workforce management</h3><div class="tags"><span class="tag">Scheduling</span><span class="tag">Attendance &amp; adherence</span><span class="tag">Shrinkage</span><span class="tag">Headcount &amp; coverage</span><span class="tag">Scorecards</span><span class="tag">QA &amp; CSAT</span></div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="exp-h">
+    <div class="section-head">
+      <div class="label">Background</div>
+      <h2 id="exp-h">Experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="job"><div class="when">2024 – Present</div><div><h3>WFM / Reporting Analyst · Conduet (now Raphie)</h3><p>AI automation and dashboard development for a customer service operation.</p></div></div>
+      <div class="job"><div class="when">2023 – 2024</div><div><h3>Customer Service Associate · KMC Solutions</h3></div></div>
+      <div class="job"><div class="when">2022 – 2023</div><div><h3>Customer Support · Entain</h3></div></div>
+      <div class="job"><div class="when">2017 – 2022</div><div><h3>Email Representative · Millennium 1 Solution</h3></div></div>
+      <div class="job"><div class="when">2011 – 2017</div><div><h3>BS Computer Engineering · Polytechnic University of the Philippines</h3><p>Cisco CCNA 200-125 bootcamp, 2020.</p></div></div>
+    </div>
+  </section>
+
+  <section class="contact" aria-labelledby="contact-h">
+    <div class="label">Contact</div>
+    <h2 id="contact-h">Let's talk about automating your operation</h2>
+    <p>Full CV available on request.</p>
+    <div class="contact-row">
+      <span class="contact-chip">Email <code id="emailText2">dollienten@gmail.com</code><button type="button" class="copy-btn" data-copy="emailText2" id="copyEmail2">Copy</button></span>
+      <span class="contact-chip">LinkedIn <a href="https://www.linkedin.com/in/johnjamesnixondolliente" target="_blank" rel="noopener">johnjamesnixondolliente</a>&nbsp;</span>
+    </div>
+  </section>
+
+  <footer>All screens on this page use sample data. No client, company or employee information is shown.</footer>
+</main>
+
+<script>
+(function () {
+  // Copy buttons
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.dataset.copy);
+      var text = el.textContent;
+      var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+      var fallback = function () {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        btn.textContent = 'Selected';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1600);
+      };
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(done, fallback); }
+        else { fallback(); }
+      } catch (e) { fallback(); }
+    });
+  });
+
+  // Mock dashboard: role switcher (sample data only)
+  var ROLES = {
+    agent: {
+      note: 'Agent view: only my own numbers.',
+      kpis: [['Satisfaction', '3.12', '+0.08', 1], ['Quality', '96.0%', '+2.1', 1], ['Chat AHT', '11.4m', '+0.6', 0], ['Attendance', '97.4%', '+0.9', 1]],
+      head: ['Date', 'Shift', 'Check in', 'Status'],
+      rows: [['Oct 1', '8:00 AM – 5:00 PM', '7:54 AM', ['Present', 'ok']], ['Oct 2', '8:00 AM – 5:00 PM', '8:12 AM', ['Late', 'warn']], ['Oct 3', '—', '—', ['Off', 'ok']]]
+    },
+    lm: {
+      note: 'Line Manager view: my team only (13 agents).',
+      kpis: [['Contacts', '4,812', '+6.2%', 1], ['Satisfaction', '3.04', '+0.05', 1], ['Quality', '91.8%', '-1.2', 0], ['Attendance', '95.1%', '+0.4', 1]],
+      head: ['Agent', 'Quality', 'Attn.', 'Status'],
+      rows: [['A. Reyes', '96.0%', '97.4%', ['Good', 'ok']], ['M. Santos', '88.5%', '93.0%', ['Coach', 'warn']], ['J. Cruz', '82.0%', '86.2%', ['At risk', 'bad']]]
+    },
+    wfm: {
+      note: 'WFM view: today’s staffing across every team.',
+      kpis: [['Scheduled', '58', '', 1], ['Logged in', '54', '', 1], ['Coverage', '93%', '-2', 0], ['On leave', '4', '', 1]],
+      head: ['Team', 'Sched.', 'Actual', 'Coverage'],
+      rows: [['Team A', '14', '14', ['100%', 'ok']], ['Team B', '12', '11', ['92%', 'warn']], ['Team C', '11', '9', ['82%', 'bad']]]
+    },
+    om: {
+      note: 'Ops Manager view: all teams under me.',
+      kpis: [['Contacts', '19,406', '+4.8%', 1], ['Satisfaction', '3.01', '+0.02', 1], ['Quality', '92.6%', '+0.7', 1], ['Earning bonus', '61%', '+5', 1]],
+      head: ['Team', 'Quality', 'Attn.', 'Status'],
+      rows: [['Team A', '94.1%', '96.0%', ['Good', 'ok']], ['Team B', '90.2%', '94.3%', ['Good', 'ok']], ['Team C', '87.5%', '89.8%', ['Watch', 'warn']]]
+    }
+  };
+  var kpiRow = document.getElementById('kpiRow'), table = document.getElementById('mockTable'), note = document.getElementById('scopeNote');
+  function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); }
+  function render(role) {
+    var d = ROLES[role];
+    note.textContent = d.note;
+    kpiRow.innerHTML = d.kpis.map(function (k) {
+      return '<div class="kpi"><small>' + esc(k[0]) + '</small><b>' + esc(k[1]) + '</b>' + (k[2] ? '<em class="' + (k[3] ? 'up' : 'down') + '">' + esc(k[2]) + '</em>' : '<em>&nbsp;</em>') + '</div>';
+    }).join('');
+    table.innerHTML = '<thead><tr>' + d.head.map(function (h, i) { return '<th' + (i > 0 && i < 3 ? ' class="num"' : '') + '>' + esc(h) + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      d.rows.map(function (r) {
+        return '<tr><td>' + esc(r[0]) + '</td><td class="num">' + esc(r[1]) + '</td><td class="num">' + esc(r[2]) + '</td><td><span class="pill ' + r[3][1] + '">' + esc(r[3][0]) + '</span></td></tr>';
+      }).join('') + '</tbody>';
+    document.querySelectorAll('.role-tab').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.role === role ? 'true' : 'false'); });
+  }
+  document.querySelectorAll('.role-tab').forEach(function (b) { b.addEventListener('click', function () { render(b.dataset.role); }); });
+  render('lm');
+
+  // Daily job timeline (SVG, drawn from one scale)
+  var W = 600, Hh = 210, L = 12, R = 588;
+  var x = function (h) { return L + (R - L) * h / 24; };
+  var jobs = [
+    { h: 15.5, label: 'KPI + satisfaction', row: 0, color: 'var(--accent)' },
+    { h: 16, label: 'Attendance', row: 1, color: 'var(--accent)' },
+    { h: 17, label: 'QA reviews', row: 2, color: 'var(--accent)' },
+    { h: 17.5, label: 'Scorecard', row: 3, color: 'var(--warm)' },
+    { h: 20, label: 'Roster + schedule (Mon/Fri)', row: 4, color: 'var(--accent)' }
+  ];
+  var s = '<svg viewBox="0 0 ' + W + ' ' + Hh + '" xmlns="http://www.w3.org/2000/svg">';
+  [0, 6, 12, 18, 24].forEach(function (h) {
+    s += '<line x1="' + x(h) + '" y1="18" x2="' + x(h) + '" y2="182" stroke="var(--line)" stroke-width="1"/>';
+    var lbl = h === 0 || h === 24 ? '12 AM' : h === 12 ? '12 PM' : (h < 12 ? h + ' AM' : (h - 12) + ' PM');
+    var anchor = h === 0 ? 'start' : h === 24 ? 'end' : 'middle';
+    s += '<text x="' + x(h) + '" y="200" font-size="11" fill="var(--muted)" text-anchor="' + anchor + '" font-family="JetBrains Mono, monospace">' + lbl + '</text>';
+  });
+  for (var i = 0; i < 48; i++) { s += '<rect x="' + (x(i / 2) - 1) + '" y="166" width="2" height="10" fill="var(--muted)" opacity="0.55"/>'; }
+  jobs.forEach(function (j) {
+    var y = 28 + j.row * 27;
+    s += '<rect x="' + (x(j.h) - 4) + '" y="' + (y - 7) + '" width="8" height="14" rx="2" fill="' + j.color + '"/>';
+    s += '<text x="' + (x(j.h) - 10) + '" y="' + (y + 4) + '" font-size="12" fill="var(--ink)" text-anchor="end" font-family="Source Sans 3, sans-serif">' + j.label + '</text>';
+  });
+  s += '</svg>';
+  document.getElementById('dayChart').innerHTML = s;
+})();
+</script>
+</body>
+</html>
